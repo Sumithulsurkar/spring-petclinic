@@ -58,6 +58,14 @@
             <dt  th:text="#{birthDate}">Birth Date</dt>
             <dd
               th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}"></dd>
+            <dt th:text="#{weight}">Weight</dt>
+            <dd th:text="${pet.weight}"></dd>
+            <dt th:text="#{length}">Length</dt>
+            <dd th:text="${pet.length}"></dd>
+            <dt th:text="#{age}">Age</dt>
+            <dd th:text="${pet.age}"></dd>
+            <dt th:text="#{vaccine}">Vaccine</dt>
+            <dd th:text="${pet.vaccine}"></dd>
             <dt th:text="#{type}">Type</dt>
             <dd th:text="${pet.type}"></dd>
           </dl>

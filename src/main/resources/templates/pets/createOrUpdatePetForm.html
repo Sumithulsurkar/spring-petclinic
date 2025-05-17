@@ -16,12 +16,31 @@
           <span th:text="${owner?.firstName + ' ' + owner?.lastName}" />
         </div>
       </div>
-      <input
-        th:replace="~{fragments/inputField :: input ('Name', 'name', 'text')}" />
-      <input
-        th:replace="~{fragments/inputField :: input ('Birth Date', 'birthDate', 'date')}" />
-      <input
-        th:replace="~{fragments/selectField :: select ('Type', 'type', ${types})}" />
+      <input th:replace="~{fragments/inputField :: input ('Name', 'name', 'text')}" />
+      <input th:replace="~{fragments/inputField :: input ('Birth Date', 'birthDate', 'date')}" />
+      <div class="form-group">
+        <label for="weight" class="col-sm-2 control-label">Weight</label>
+        <div class="col-sm-10">
+          <input type="number" step="0.01" id="weight" name="weight" th:field="*{weight}" class="form-control" />
+          <div class="text-danger" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="length" class="col-sm-2 control-label">Length</label>
+        <div class="col-sm-10">
+          <input type="number" step="0.01" id="length" name="length" th:field="*{length}" class="form-control" />
+          <div class="text-danger" th:if="${#fields.hasErrors('length')}" th:errors="*{length}"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="age" class="col-sm-2 control-label">Age</label>
+        <div class="col-sm-10">
+          <input type="number" id="age" name="age" th:field="*{age}" class="form-control" />
+          <div class="text-danger" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+        </div>
+      </div>
+      <input th:replace="~{fragments/inputField :: input ('Vaccine', 'vaccine', 'text')}" />
+      <input th:replace="~{fragments/selectField :: select ('Type', 'type', ${types})}" />
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
@@ -31,7 +50,5 @@
       </div>
     </div>
   </form>
-
 </body>
-
 </html>

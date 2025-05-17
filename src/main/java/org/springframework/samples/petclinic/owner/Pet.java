@@ -53,6 +53,18 @@ public class Pet extends NamedEntity {
 	@JoinColumn(name = "type_id")
 	private PetType type;
 
+	@Column(name = "weight")
+	private Double weight;
+
+	@Column(name = "length")
+	private Double length;
+
+	@Column(name = "age")
+	private Double age;
+
+	@Column(name = "vaccine")
+	private String vaccine;
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "pet_id")
 	@OrderBy("date ASC")
@@ -64,6 +76,38 @@ public class Pet extends NamedEntity {
 
 	public LocalDate getBirthDate() {
 		return this.birthDate;
+	}
+
+	public Double getWeight() {
+		return this.weight;
+	}
+
+	public Double getLength() {
+		return this.length;
+	}
+
+	public Double getAge() {
+		return this.age;
+	}
+
+	public String getVaccine() {
+		return this.vaccine;
+	}
+
+	public void setWeight(Double weight) {
+		this.weight = weight;
+	}
+
+	public void setLength(Double length) {
+		this.length = length;
+	}
+
+	public void setAge(Double age) {
+		this.age = age;
+	}
+
+	public void setVaccine(String vaccine) {
+		this.vaccine = vaccine;
 	}
 
 	public PetType getType() {

@@ -37,6 +37,11 @@ public class PetValidator implements Validator {
 	public void validate(Object obj, Errors errors) {
 		Pet pet = (Pet) obj;
 		String name = pet.getName();
+		Double weight = pet.getWeight();
+		Double length = pet.getLength();
+		Double age = pet.getAge();
+		String vaccine = pet.getVaccine();
+
 		// name validation
 		if (!StringUtils.hasText(name)) {
 			errors.rejectValue("name", REQUIRED, REQUIRED);
@@ -50,6 +55,22 @@ public class PetValidator implements Validator {
 		// birth date validation
 		if (pet.getBirthDate() == null) {
 			errors.rejectValue("birthDate", REQUIRED, REQUIRED);
+		}
+
+		if (weight == null) {
+			errors.rejectValue("weight", REQUIRED, REQUIRED);
+		}
+
+		if (length == null) {
+			errors.rejectValue("length", REQUIRED, REQUIRED);
+		}
+
+		if (age == null) {
+			errors.rejectValue("age", REQUIRED, REQUIRED);
+		}
+
+		if (!StringUtils.hasText(vaccine)) {
+			errors.rejectValue("vaccine", REQUIRED, REQUIRED);
 		}
 	}
 
